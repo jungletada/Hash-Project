@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66a1b217-71a8-453c-aaab-0421b1a6b4ea" name="Default Changelist" comment="" />
+    <list default="true" id="66a1b217-71a8-453c-aaab-0421b1a6b4ea" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HashFrame/Hash/GraPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HashFrame/Hash/GraPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HashFrame/Hash/Hash.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HashFrame/Hash/Hash.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HashFrame/Hash/Haxi.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HashFrame/Hash/Haxi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HashFrame/Hash/MyTextField.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HashFrame/Hash/MyTextField.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HashFrame/Hash/TeleTable.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HashFrame/Hash/TeleTable.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HashFrame/Hash/UserData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HashFrame/Hash/UserData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HashFrame/Hash/icon2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HashFrame/Hash/wallhaven-13549.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hash/Haxi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hash/Haxi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hash/MyTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hash/MyTextField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hash/TeleTable.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hash/TeleTable.txt" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,11 +26,12 @@
     <session id="1364940964">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
-          <entry key="project.open.time.0" value="2" />
+          <entry key="project.closed" value="8" />
+          <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.20" value="2" />
           <entry key="project.open.time.24" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -34,21 +48,21 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5608" />
-          <entry key="txt" value="17" />
+          <entry key="java" value="6127" />
+          <entry key="txt" value="302" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5608" />
-          <entry key="PLAIN_TEXT" value="17" />
+          <entry key="JAVA" value="6127" />
+          <entry key="PLAIN_TEXT" value="302" />
         </counts>
       </usages-collector>
     </session>
     <session id="226258092">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.22" value="2" />
           <entry key="project.opened" value="2" />
         </counts>
@@ -56,13 +70,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="1371" />
-          <entry key="txt" value="120" />
+          <entry key="txt" value="236" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="1371" />
-          <entry key="PLAIN_TEXT" value="120" />
+          <entry key="PLAIN_TEXT" value="236" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -79,23 +93,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Hash/Haxi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7337">
-              <caret line="322" column="28" selection-start-line="322" selection-start-column="28" selection-end-line="322" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Hash/MyTextField.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+            <state relative-caret-position="960">
+              <caret line="164" column="9" selection-start-line="164" selection-start-column="9" selection-end-line="164" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,10 +106,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Hash/TeleTable.txt">
+        <entry file="file://$PROJECT_DIR$/src/Hash/MyTextField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+            <state relative-caret-position="6246">
+              <caret line="236" column="47" selection-start-line="236" selection-start-column="47" selection-end-line="236" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Hash/Teletable.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="385">
+              <caret line="116" column="5" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -127,16 +141,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Hash/Teletable.txt" />
-        <option value="$PROJECT_DIR$/src/Hash/MyTextField.java" />
         <option value="$PROJECT_DIR$/src/Hash/TeleTable.txt" />
+        <option value="$PROJECT_DIR$/src/Hash/MyTextField.java" />
+        <option value="$PROJECT_DIR$/src/Hash/Teletable.txt" />
         <option value="$PROJECT_DIR$/src/Hash/Haxi.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="531" />
-    <option name="width" value="1443" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-235" />
+    <option name="width" value="1280" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -145,7 +159,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -169,10 +182,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544585145870" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544614562520" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -235,10 +249,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1455" height="935" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1095204" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.07356077" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -247,15 +261,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6625156" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.96634096" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="8" side_tool="true" visible="true" weight="0.32917705" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32917705" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.19326684" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.19326684" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -276,34 +290,28 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/TmyTextield.java" />
     <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.desktop/javax/imageio/ImageIO.java" />
-    <entry file="jar://$PROJECT_DIR$/../jdk-10.0.2/lib/src.zip!/java.desktop/java/awt/event/ActionListener.java">
+    <entry file="jar://$PROJECT_DIR$/../jdk-10.0.2/lib/src.zip!/java.desktop/java/awt/event/ActionListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/Hash/Teletable.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+        <state relative-caret-position="385">
+          <caret line="116" column="5" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hash/Haxi.java">
+    <entry file="file://$PROJECT_DIR$/src/Hash/MyTextField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7337">
-          <caret line="322" column="28" selection-start-line="322" selection-start-column="28" selection-end-line="322" selection-end-column="28" />
+        <state relative-caret-position="6246">
+          <caret line="236" column="47" selection-start-line="236" selection-start-column="47" selection-end-line="236" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hash/TeleTable.txt">
+    <entry file="file://$PROJECT_DIR$/src/Hash/Haxi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Hash/MyTextField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        <state relative-caret-position="960">
+          <caret line="164" column="9" selection-start-line="164" selection-start-column="9" selection-end-line="164" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

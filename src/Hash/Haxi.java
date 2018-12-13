@@ -1,4 +1,3 @@
-
 package Hash;
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,10 +6,11 @@ import java.io.IOException;
 
 
 public class Haxi {
-    public int Czy=1;//
-    public int len;//
-    public final int size=50;//表长
+    public int times =1;//
+    public int length;//用户数据表长度
+    public final int size=97;//表长
 
+    public int TotalConflict;
     public Hash Hashtable_phone;//电话号码哈希表
     public Hash Hashtable_name;//姓名哈希表
     public Hash Hashtable_address;//地址哈希表
@@ -26,9 +26,10 @@ public class Haxi {
     public int address_key;//地址获得的key
 
     //初始的电话簿文件 TeleTable.txt
-    public final String TeleTable="C:\\java\\HashFrame\\src\\Hash\\TeleTable.txt";
-    public File file;
-    public BufferedReader reader = null;
+    public final String TeleTable="D:\\java_test\\HashFrame" +
+            "\\src\\Hash\\TeleTable.txt";
+    public File file; //文件
+    public BufferedReader reader = null;//读取文件
 
     /**
      * 构造函数
@@ -70,6 +71,7 @@ public class Haxi {
         }
         Hashtable_name.size=size;
         Hashtable_name.cnt=0;
+        TotalConflict=0;
     }
 
     /**
@@ -93,7 +95,7 @@ public class Haxi {
                 }
                 times++;
             }
-            len=i;
+            length =i;
             reader.close();
         }catch (IOException e){}
 
@@ -107,21 +109,59 @@ public class Haxi {
          * 输出
          */
         for(int i=0;i<size;i++) {
-            System.out.println(i+" "+Hashtable_address.data[i].phoneNumber+" "
-                    +Hashtable_address.data[i].name+" "+Hashtable_address.data[i].address);
+            System.out.println(i+" "+Hashtable_phone.data[i].phoneNumber+" "
+                    +Hashtable_phone.data[i].name+" "+Hashtable_phone.data[i].address);
         }
+        System.out.println(TotalConflict);
     }
 
+    public void Insert(UserData Data){
+        phone_key=GetHashKey_Phone(Data.phoneNumber);
+        if(Hashtable_phone.data[phone_key].name.charAt(0)!='0')
+            phone_key= HandleConflict(Hashtable_phone,phone_key);
+
+        Hashtable_phone.data[phone_key].phoneNumber=Data.phoneNumber;
+        Hashtable_phone.data[phone_key].name=Data.name;
+        Hashtable_phone.data[phone_key].address=Data.address;
+
+        name_key=GetHashKey_Name(Data.name);
+        if(Hashtable_name.data[name_key].name.charAt(0)!='0')
+            name_key= HandleConflict(Hashtable_name,name_key);
+
+        Hashtable_name.data[name_key].phoneNumber=Data.phoneNumber;
+        Hashtable_name.data[name_key].name=Data.name;
+        Hashtable_name.data[name_key].address=Data.address;
+
+        address_key = GetHashKey_Address(Data.address);
+        if(Hashtable_address.data[address_key].name.charAt(0)!='0')
+            address_key= HandleConflict(Hashtable_address,address_key);
+
+        Hashtable_address.data[address_key].phoneNumber=Data.phoneNumber;
+        Hashtable_address.data[address_key].name=Data.name;
+        Hashtable_address.data[address_key].address=Data.address;
+
+    }
     /**根据电话号码获得key
      * @param phone
      * @return
      */
     public int GetHashKey_Phone(String phone) {
         int len = phone.length();
-        int key=0;
-        for(int i=0;i<len;i++) {
-            int temp=Integer.parseInt(String.valueOf(phone.charAt(i)));
-            key+=temp;
+        int key=0,t1;
+        for(int i=7;i<len;i++){
+            t1 = Integer.parseInt(String.valueOf(phone.charAt(i)));
+            if(i==7){
+                key+=t1*1000;
+            }
+            else if(i==8) {
+                key+=t1*100;
+            }
+            else if(i==9) {
+                key+=t1*10;
+            }
+            else if(i==10) {
+                key+=t1;
+            }
         }
         return key%size;
     }
@@ -147,7 +187,6 @@ public class Haxi {
         int len=Address.length();
         int key=0;
         for(int i=0;i<len;i++) {
-            //char t=phone.charAt(i);
             int temp=(int)Address.charAt(i);
             key+=temp;
         }
@@ -158,10 +197,10 @@ public class Haxi {
      *根据电话号码构建哈希表
      */
     public void CreateHashTable_Phone() {
-        for(int i=0;i<len;i++){
+        for(int i = 0; i< length; i++){
             phone_key=GetHashKey_Phone(record[i].phoneNumber);
             if(Hashtable_phone.data[phone_key].name.charAt(0)!='0')
-                phone_key=HandleCollission(Hashtable_phone,phone_key);
+                phone_key= HandleConflict(Hashtable_phone,phone_key);
 
             Hashtable_phone.data[phone_key].phoneNumber=record[i].phoneNumber;
             Hashtable_phone.data[phone_key].name=record[i].name;
@@ -172,10 +211,10 @@ public class Haxi {
      *根据姓名构建哈希表
      */
     public void CreateHashTable_Name() {
-        for(int i=0;i<len;i++){
+        for(int i = 0; i< length; i++){
             name_key=GetHashKey_Name(record[i].name);
             if(Hashtable_name.data[name_key].name.charAt(0)!='0')
-                name_key=HandleCollission(Hashtable_name,name_key);
+                name_key= HandleConflict(Hashtable_name,name_key);
 
             Hashtable_name.data[name_key].phoneNumber=record[i].phoneNumber;
             Hashtable_name.data[name_key].name=record[i].name;
@@ -187,10 +226,10 @@ public class Haxi {
      *根据地址构建哈希表
      */
     public void CreateHashTable_Address() {
-        for(int i=0;i<len;i++){
+        for(int i = 0; i< length; i++){
             address_key = GetHashKey_Address(record[i].address);
             if(Hashtable_address.data[address_key].name.charAt(0)!='0')
-                address_key=HandleCollission(Hashtable_address,address_key);
+                address_key= HandleConflict(Hashtable_address,address_key);
 
             Hashtable_address.data[address_key].phoneNumber=record[i].phoneNumber;
             Hashtable_address.data[address_key].name=record[i].name;
@@ -200,23 +239,24 @@ public class Haxi {
 
     /**
      * 冲突处理，二次探测再散列
-     * @param Hashtable
+     * @param HashTable
      * @param key
      * @return
      */
-    public int HandleCollission(Hash Hashtable,int key) {
-        Czy=1; //从2,3,4,5,.......
+    public int HandleConflict(Hash HashTable, int key) {
+        times = 1; //从2,3,4,5,.......
         while(true){
-            Czy++; //从2,3,4,5,.......
-            if(Czy%2==0) {
-                if(Hashtable.data[(key+(Czy/2)*(Czy/2))%50].name.charAt(0)=='0')
-                    return (key+(Czy/2)*(Czy/2))%50;
+            times++; //从2,3,4,5,.......
+            TotalConflict++;
+            if(times %2==0) {
+                if(HashTable.data[(key+(times /2)*(times /2))%50].name.charAt(0)=='0')
+                    return (key+(times /2)*(times /2))%50;
             }
-            else if(Czy%2!=0) {
-                if((key-(Czy/2)*(Czy/2))<0)
+            else if(times %2!=0) {
+                if((key-(times /2)*(times /2))<0)
                     continue;//由于是减法，要注意负数不能取模
-                if(Hashtable.data[(key-(Czy/2)*(Czy/2))%50].name.charAt(0)=='0')
-                    return (key-(Czy/2)*(Czy/2))%50;
+                if(HashTable.data[(key-(times /2)*(times /2))%50].name.charAt(0)=='0')
+                    return (key-(times /2)*(times /2))%50;
             }
         }
     }
@@ -227,17 +267,17 @@ public class Haxi {
     public boolean SerchKey_Phone(String PhoneNumber) {
         phone_key=GetHashKey_Phone(PhoneNumber);
         if(!Hashtable_phone.data[phone_key].phoneNumber.equals(PhoneNumber)){
-            for(Czy=1;Czy<50;Czy++){
-                if(Czy%2==0) {
-                    if(PhoneNumber.equals(Hashtable_phone.data[(phone_key+(Czy/2)*(Czy/2))%50].phoneNumber)){
-                        phone_key= (phone_key+(Czy/2)*(Czy/2))%50;
+            for(times = 1; times < size; times++){
+                if(times %2==0) {
+                    if(PhoneNumber.equals(Hashtable_phone.data[(phone_key+(times /2)*(times /2))%size].phoneNumber)){
+                        phone_key= (phone_key+(times /2)*(times /2))%size;
                         break;
                     }
                 }
-                else if(Czy%2!=0) {
-                    if((phone_key-(Czy/2)*(Czy/2))<0) continue;//由于是减法，要注意负数不能取模
-                    if(PhoneNumber.equals(Hashtable_phone.data[(phone_key-(Czy/2)*(Czy/2))%50].phoneNumber)){
-                        phone_key= (phone_key-(Czy/2)*(Czy/2))%50;
+                else if(times %2!=0) {
+                    if((phone_key-(times /2)*(times /2))<0) continue;//由于是减法，要注意负数不能取模
+                    if(PhoneNumber.equals(Hashtable_phone.data[(phone_key-(times /2)*(times /2))%size].phoneNumber)){
+                        phone_key= (phone_key-(times /2)*(times /2))%size;
                         break;
                     }
                 }
@@ -245,12 +285,12 @@ public class Haxi {
         }
         if(Hashtable_phone.data[phone_key].address.charAt(0)!='0'){
             Res_phone=Hashtable_phone.data[phone_key].name+"--"+Hashtable_phone.data[phone_key].phoneNumber
-                +"--"+Hashtable_phone.data[phone_key].address;
+                    +"--"+Hashtable_phone.data[phone_key].address;
             System.out.println(Res_phone);
             return true;
         }
         else{
-            Res_name="该号码不在名单上";
+            Res_phone="该号码不在名单上";
             System.out.println(Res_name);
             return false;
         }
@@ -265,17 +305,17 @@ public class Haxi {
     {
         name_key=GetHashKey_Name(Name);
         if(!Hashtable_name.data[name_key].name.equals(Name)){
-            for(Czy=1;Czy<50;Czy++){
-                if(Czy%2==0) {
-                    if(Name.equals(Hashtable_name.data[(name_key+(Czy/2)*(Czy/2))%50].name)){
-                        name_key= (name_key+(Czy/2)*(Czy/2))%50;
+            for(times = 1; times < size; times++){
+                if(times %2==0) {
+                    if(Name.equals(Hashtable_name.data[(name_key+(times /2)*(times /2))%size].name)){
+                        name_key= (name_key+(times /2)*(times /2))%size;
                         break;
                     }
                 }
-                else if(Czy%2!=0) {
-                    if((name_key-(Czy/2)*(Czy/2))<0) continue;//由于是减法，要注意负数不能取模
-                    if(Name.equals(Hashtable_name.data[(name_key-(Czy/2)*(Czy/2))%50].name)){
-                        name_key= (name_key-(Czy/2)*(Czy/2))%50;
+                else if(times %2!=0) {
+                    if((name_key-(times /2)*(times /2))<0) continue;//由于是减法，要注意负数不能取模
+                    if(Name.equals(Hashtable_name.data[(name_key-(times /2)*(times /2))%size].name)){
+                        name_key= (name_key-(times /2)*(times /2))%size;
                         break;
                     }
                 }
@@ -303,32 +343,32 @@ public class Haxi {
     {
         address_key =GetHashKey_Address(Address);
         if(!Hashtable_address.data[address_key].address.equals(Address)){
-            for(Czy=1;Czy<50;Czy++){
-                if(Czy%2==0) {
-                    if(Address.equals(Hashtable_address.data[(address_key +(Czy/2)*(Czy/2))%50].address)){
-                        address_key = (address_key +(Czy/2)*(Czy/2))%50;
+            for(times =1; times < size; times++){
+                if(times %2==0) {
+                    if(Address.equals(Hashtable_address.data[(address_key +(times /2)*(times /2))%size].address)){
+                        address_key = (address_key +(times /2)*(times /2))%size;
                         break;
                     }
                 }
-                else if(Czy%2!=0) {
-                    if((address_key -(Czy/2)*(Czy/2))<0) continue;//由于是减法，要注意负数不能取模
-                    if(Address.equals(Hashtable_address.data[(address_key -(Czy/2)*
-                            (Czy/2))%50].address)){
-                        address_key = (address_key -(Czy/2)*(Czy/2))%50;
+                else if(times %2!=0) {
+                    if((address_key -(times /2)*(times /2))<0) continue;//由于是减法，要注意负数不能取模
+                    if(Address.equals(Hashtable_address.data[(address_key -(times /2)*
+                            (times /2))%size].address)){
+                        address_key = (address_key -(times /2)*(times /2))%size;
                         break;
                     }
                 }
             }
         }
-        if(Hashtable_address.data[address_key].name.charAt(0)!='0'){
-        Res_address =Hashtable_address.data[address_key].name+"--"+
-                Hashtable_address.data[address_key].phoneNumber
-                +"--"+Hashtable_address.data[address_key].address;
-        System.out.println(Res_address);
-        return true;
+        if(Hashtable_address.data[address_key].address.charAt(0)!='0'){
+            Res_address =Hashtable_address.data[address_key].name+"--"+
+                    Hashtable_address.data[address_key].phoneNumber
+                    +"--"+Hashtable_address.data[address_key].address;
+            System.out.println(Res_address);
+            return true;
         }
         else{
-            Res_name="该地址不在名单上";
+            Res_address="该地址不在名单上";
             System.out.println(Res_address);
             return false;
         }
@@ -361,5 +401,3 @@ class Hash{
     int cnt;
     int size;
 }
-
-

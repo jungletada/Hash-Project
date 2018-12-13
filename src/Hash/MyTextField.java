@@ -222,10 +222,11 @@ class GraPanel extends JPanel implements ActionListener{
         if(b4==e.getSource()){
             boolean flag=true;
             String name=JOptionPane.showInputDialog("请输入姓名");
-            if(haxi.SerchKey_Name(name))
+            if(haxi.SerchKey_Name(name)){
                 JOptionPane.showMessageDialog(null,"该名字已经存在",
                         "注意",JOptionPane.WARNING_MESSAGE);
                 flag=false;
+            }
             String phone=JOptionPane.showInputDialog("请输入电话号码");
             if(haxi.SerchKey_Phone(phone)){
                 JOptionPane.showMessageDialog(null,"该号码已经存在",
@@ -240,13 +241,15 @@ class GraPanel extends JPanel implements ActionListener{
             }
             if(flag)
             {
-                haxi.record[haxi.len].name=name;
-                haxi.record[haxi.len].phoneNumber=phone;
-                haxi.record[haxi.len].address=address;
-                haxi.len++;
+                UserData Data=new UserData();
+                Data.name=name;
+                Data.phoneNumber=phone;
+                Data.address=address;
+                haxi.length++;
+                haxi.Insert(Data);/*
                 haxi.CreateHashTable_Phone();
                 haxi.CreateHashTable_Name();
-                haxi.CreateHashTable_Address();
+                haxi.CreateHashTable_Address();*/
             }
         }
 
@@ -281,9 +284,9 @@ public class MyTextField{
         frame.setVisible(true);
     }
     public static void main(String[]args){
-       GraPanel graPanel=new GraPanel();
-       graPanel.haxi.InitialTable();
-       MyTextField textField=new MyTextField();
-       textField.frame.add(graPanel);
+        GraPanel graPanel=new GraPanel();
+        graPanel.haxi.InitialTable();
+        MyTextField textField=new MyTextField();
+        textField.frame.add(graPanel);
     }
 }
