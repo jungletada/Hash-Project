@@ -54,7 +54,7 @@ class GraPanel extends JPanel implements ActionListener{
             flag=false;
         }
         for(int i=0;i<Name.length();i++){
-            if(Name.charAt(i)>=0&&Name.charAt(i)<=9){
+            if(Name.charAt(i)>='0'&&Name.charAt(i)<='9'){
                 flag=false;
                 break;
             }
@@ -68,7 +68,7 @@ class GraPanel extends JPanel implements ActionListener{
 
     public void SearchByNum(){
         boolean flag=true;
-        if(PhoneNumber.length()>11){
+        if(PhoneNumber.length()!=11){
             flag=false;
         }
         for(int i=0;i<PhoneNumber.length();i++){
@@ -198,7 +198,7 @@ class GraPanel extends JPanel implements ActionListener{
             SearchByNum();
             System.out.println("给定电话号码为："+PhoneNumber+"\n"
                     +"搜索到的号码数据为：");
-            haxi.SerchKey_Phone(PhoneNumber);
+            haxi.SearchKey_Phone(PhoneNumber);
             result.setText(haxi.Res_phone);
         }
 
@@ -207,7 +207,7 @@ class GraPanel extends JPanel implements ActionListener{
             SearchByName();
             System.out.println("给定姓名为："+Name+"\n"
                     +"搜索到的姓名数据为：");
-            haxi.SerchKey_Name(Name);
+            haxi.SearchKey_Name(Name);
             result.setText(haxi.Res_name);
         }
 
@@ -215,26 +215,26 @@ class GraPanel extends JPanel implements ActionListener{
             Address = textField.getText();
             System.out.println("给定地址为："+Address+"\n"
                     +"搜索到的地址数据为：");
-            haxi.SerchKey_Address(Address);
+            haxi.SearchKey_Address(Address);
             result.setText(haxi.Res_address);
         }
 
         if(b4==e.getSource()){
             boolean flag=true;
             String name=JOptionPane.showInputDialog("请输入姓名");
-            if(haxi.SerchKey_Name(name)){
+            if(haxi.SearchKey_Name(name)){
                 JOptionPane.showMessageDialog(null,"该名字已经存在",
                         "注意",JOptionPane.WARNING_MESSAGE);
                 flag=false;
             }
             String phone=JOptionPane.showInputDialog("请输入电话号码");
-            if(haxi.SerchKey_Phone(phone)){
+            if(haxi.SearchKey_Phone(phone)){
                 JOptionPane.showMessageDialog(null,"该号码已经存在",
                         "注意",JOptionPane.WARNING_MESSAGE);
                 flag=false;
             }
             String address=JOptionPane.showInputDialog("请输入地址");
-            if(haxi.SerchKey_Address(address)){
+            if(haxi.SearchKey_Address(address)){
                 JOptionPane.showMessageDialog(null,"该地址已经存在",
                         "注意",JOptionPane.WARNING_MESSAGE);
                 flag=false;

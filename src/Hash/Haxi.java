@@ -264,7 +264,7 @@ public class Haxi {
      * 根据电话号码查询
      * @param PhoneNumber
      */
-    public boolean SerchKey_Phone(String PhoneNumber) {
+    public boolean SearchKey_Phone(String PhoneNumber) {
         phone_key=GetHashKey_Phone(PhoneNumber);
         if(!Hashtable_phone.data[phone_key].phoneNumber.equals(PhoneNumber)){
             for(times = 1; times < size; times++){
@@ -275,15 +275,16 @@ public class Haxi {
                     }
                 }
                 else if(times %2!=0) {
-                    if((phone_key-(times /2)*(times /2))<0) continue;//由于是减法，要注意负数不能取模
-                    if(PhoneNumber.equals(Hashtable_phone.data[(phone_key-(times /2)*(times /2))%size].phoneNumber)){
-                        phone_key= (phone_key-(times /2)*(times /2))%size;
+                    if((phone_key-(times /2)*(times /2))<0)
+                        continue;//由于是减法，要注意负数不能取模
+                    if(PhoneNumber.equals(Hashtable_phone.data[(phone_key-(times/2)*(times/2))%size].phoneNumber)){
+                        phone_key = (phone_key-(times /2)*(times /2))%size;
                         break;
                     }
                 }
             }
         }
-        if(Hashtable_phone.data[phone_key].address.charAt(0)!='0'){
+        if(Hashtable_phone.data[phone_key].phoneNumber.equals(PhoneNumber)){
             Res_phone=Hashtable_phone.data[phone_key].name+"--"+Hashtable_phone.data[phone_key].phoneNumber
                     +"--"+Hashtable_phone.data[phone_key].address;
             System.out.println(Res_phone);
@@ -301,7 +302,7 @@ public class Haxi {
      * @param Name
      * @return
      */
-    public boolean SerchKey_Name(String Name)
+    public boolean SearchKey_Name(String Name)
     {
         name_key=GetHashKey_Name(Name);
         if(!Hashtable_name.data[name_key].name.equals(Name)){
@@ -321,7 +322,7 @@ public class Haxi {
                 }
             }
         }
-        if(Hashtable_name.data[name_key].name.charAt(0)!='0'){
+        if(Hashtable_name.data[name_key].name.equals(Name)){
             Res_name=Hashtable_name.data[name_key].name+"--"+Hashtable_name.data[name_key].phoneNumber
                     +"--"+Hashtable_name.data[name_key].address;
             System.out.println(Res_name);
@@ -339,7 +340,7 @@ public class Haxi {
      * @param Address
      * @return
      */
-    public boolean SerchKey_Address(String Address)
+    public boolean SearchKey_Address(String Address)
     {
         address_key =GetHashKey_Address(Address);
         if(!Hashtable_address.data[address_key].address.equals(Address)){
@@ -351,7 +352,8 @@ public class Haxi {
                     }
                 }
                 else if(times %2!=0) {
-                    if((address_key -(times /2)*(times /2))<0) continue;//由于是减法，要注意负数不能取模
+                    if((address_key -(times /2)*(times /2))<0)
+                        continue;//由于是减法，要注意负数不能取模
                     if(Address.equals(Hashtable_address.data[(address_key -(times /2)*
                             (times /2))%size].address)){
                         address_key = (address_key -(times /2)*(times /2))%size;
@@ -360,7 +362,7 @@ public class Haxi {
                 }
             }
         }
-        if(Hashtable_address.data[address_key].address.charAt(0)!='0'){
+        if(Hashtable_address.data[address_key].address.equals(Address)){
             Res_address =Hashtable_address.data[address_key].name+"--"+
                     Hashtable_address.data[address_key].phoneNumber
                     +"--"+Hashtable_address.data[address_key].address;
